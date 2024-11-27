@@ -54,9 +54,7 @@
 #pragma warning(disable:4290)
 #endif
 
-
 namespace Imath {
-
 
 template <class T> class Vec2
 {
@@ -71,7 +69,6 @@ template <class T> class Vec2
     T &			operator [] (int i);
     const T &		operator [] (int i) const;
 
-
     //-------------
     // Constructors
     //-------------
@@ -79,7 +76,6 @@ template <class T> class Vec2
     Vec2 ();                        // no initialization
     explicit Vec2 (T a);            // (a a)
     Vec2 (T a, T b);                // (a b)
-
 
     //---------------------------------
     // Copy constructors and assignment
@@ -89,7 +85,6 @@ template <class T> class Vec2
     template <class S> Vec2 (const Vec2<S> &v);
 
     const Vec2 &	operator = (const Vec2 &v);
-
 
     //----------------------
     // Compatibility with Sb
@@ -121,7 +116,6 @@ template <class T> class Vec2
     template <class S>
     bool		operator != (const Vec2<S> &v) const;
 
-
     //-----------------------------------------------------------------------
     // Compare two vectors and test if they are "approximately equal":
     //
@@ -150,7 +144,6 @@ template <class T> class Vec2
     T			dot (const Vec2 &v) const;
     T			operator ^ (const Vec2 &v) const;
 
-
     //------------------------------------------------
     // Right-handed cross product, i.e. z component of
     // Vec3 (this->x, this->y, 0) % Vec3 (v.x, v.y, 0)
@@ -159,14 +152,12 @@ template <class T> class Vec2
     T			cross (const Vec2 &v) const;
     T			operator % (const Vec2 &v) const;
 
-
     //------------------------
     // Component-wise addition
     //------------------------
 
     const Vec2 &	operator += (const Vec2 &v);
     Vec2		operator + (const Vec2 &v) const;
-
 
     //---------------------------
     // Component-wise subtraction
@@ -175,14 +166,12 @@ template <class T> class Vec2
     const Vec2 &	operator -= (const Vec2 &v);
     Vec2		operator - (const Vec2 &v) const;
 
-
     //------------------------------------
     // Component-wise multiplication by -1
     //------------------------------------
 
     Vec2		operator - () const;
     const Vec2 &	negate ();
-
 
     //------------------------------
     // Component-wise multiplication
@@ -193,7 +182,6 @@ template <class T> class Vec2
     Vec2		operator * (const Vec2 &v) const;
     Vec2		operator * (T a) const;
 
-
     //------------------------
     // Component-wise division
     //------------------------
@@ -202,7 +190,6 @@ template <class T> class Vec2
     const Vec2 &	operator /= (T a);
     Vec2		operator / (const Vec2 &v) const;
     Vec2		operator / (T a) const;
-
 
     //----------------------------------------------------------------
     // Length and normalization:  If v.length() is 0.0, v.normalize()
@@ -217,20 +204,18 @@ template <class T> class Vec2
     T			length2 () const;
 
     const Vec2 &	normalize ();           // modifies *this
-    const Vec2 &	normalizeExc () throw (Iex::MathExc);
+    const Vec2 &	normalizeExc ();
     const Vec2 &	normalizeNonNull ();
 
     Vec2<T>		normalized () const;	// does not modify *this
-    Vec2<T>		normalizedExc () const throw (Iex::MathExc);
+    Vec2<T>		normalizedExc () const;
     Vec2<T>		normalizedNonNull () const;
-
 
     //--------------------------------------------------------
     // Number of dimensions, i.e. number of elements in a Vec2
     //--------------------------------------------------------
 
     static unsigned int	dimensions() {return 2;}
-
 
     //-------------------------------------------------
     // Limitations of type T (see also class limits<T>)
@@ -241,7 +226,6 @@ template <class T> class Vec2
     static T		baseTypeSmallest()	{return limits<T>::smallest();}
     static T		baseTypeEpsilon()	{return limits<T>::epsilon();}
 
-
     //--------------------------------------------------------------
     // Base type -- in templates, which accept a parameter, V, which
     // could be either a Vec2<T> or a Vec3<T>, you can refer to T as
@@ -250,7 +234,6 @@ template <class T> class Vec2
 
     typedef T		BaseType;
 };
-
 
 template <class T> class Vec3
 {
@@ -265,7 +248,6 @@ template <class T> class Vec3
     T &			operator [] (int i);
     const T &		operator [] (int i) const;
 
-
     //-------------
     // Constructors
     //-------------
@@ -273,7 +255,6 @@ template <class T> class Vec3
     Vec3 ();			   // no initialization
     explicit Vec3 (T a);           // (a a a)
     Vec3 (T a, T b, T c);	   // (a b c)
-
 
     //---------------------------------
     // Copy constructors and assignment
@@ -283,7 +264,6 @@ template <class T> class Vec3
     template <class S> Vec3 (const Vec3<S> &v);
 
     const Vec3 &	operator = (const Vec3 &v);
-
 
     //----------------------
     // Compatibility with Sb
@@ -303,7 +283,6 @@ template <class T> class Vec3
 
     T *			getValue();
     const T *		getValue() const;
-
 
     //---------
     // Equality
@@ -343,7 +322,6 @@ template <class T> class Vec3
     T			dot (const Vec3 &v) const;
     T			operator ^ (const Vec3 &v) const;
 
-
     //---------------------------
     // Right-handed cross product
     //---------------------------
@@ -352,14 +330,12 @@ template <class T> class Vec3
     const Vec3 &	operator %= (const Vec3 &v);
     Vec3		operator % (const Vec3 &v) const;
 
-
     //------------------------
     // Component-wise addition
     //------------------------
 
     const Vec3 &	operator += (const Vec3 &v);
     Vec3		operator + (const Vec3 &v) const;
-
 
     //---------------------------
     // Component-wise subtraction
@@ -368,14 +344,12 @@ template <class T> class Vec3
     const Vec3 &	operator -= (const Vec3 &v);
     Vec3		operator - (const Vec3 &v) const;
 
-
     //------------------------------------
     // Component-wise multiplication by -1
     //------------------------------------
 
     Vec3		operator - () const;
     const Vec3 &	negate ();
-
 
     //------------------------------
     // Component-wise multiplication
@@ -386,7 +360,6 @@ template <class T> class Vec3
     Vec3		operator * (const Vec3 &v) const;
     Vec3		operator * (T a) const;
 
-
     //------------------------
     // Component-wise division
     //------------------------
@@ -395,7 +368,6 @@ template <class T> class Vec3
     const Vec3 &	operator /= (T a);
     Vec3		operator / (const Vec3 &v) const;
     Vec3		operator / (T a) const;
-
 
     //----------------------------------------------------------------
     // Length and normalization:  If v.length() is 0.0, v.normalize()
@@ -410,20 +382,18 @@ template <class T> class Vec3
     T			length2 () const;
 
     const Vec3 &	normalize ();           // modifies *this
-    const Vec3 &	normalizeExc () throw (Iex::MathExc);
+    const Vec3 &	normalizeExc ();
     const Vec3 &	normalizeNonNull ();
 
     Vec3<T>		normalized () const;	// does not modify *this
-    Vec3<T>		normalizedExc () const throw (Iex::MathExc);
+    Vec3<T>		normalizedExc () const;
     Vec3<T>		normalizedNonNull () const;
-
 
     //--------------------------------------------------------
     // Number of dimensions, i.e. number of elements in a Vec3
     //--------------------------------------------------------
 
     static unsigned int	dimensions() {return 3;}
-
 
     //-------------------------------------------------
     // Limitations of type T (see also class limits<T>)
@@ -434,7 +404,6 @@ template <class T> class Vec3
     static T		baseTypeSmallest()	{return limits<T>::smallest();}
     static T		baseTypeEpsilon()	{return limits<T>::epsilon();}
 
-
     //--------------------------------------------------------------
     // Base type -- in templates, which accept a parameter, V, which
     // could be either a Vec2<T> or a Vec3<T>, you can refer to T as
@@ -443,7 +412,6 @@ template <class T> class Vec3
 
     typedef T		BaseType;
 };
-
 
 //--------------
 // Stream output
@@ -455,14 +423,12 @@ std::ostream &	operator << (std::ostream &s, const Vec2<T> &v);
 template <class T>
 std::ostream &	operator << (std::ostream &s, const Vec3<T> &v);
 
-
 //----------------------------------------------------
 // Reverse multiplication: S * Vec2<T> and S * Vec3<T>
 //----------------------------------------------------
 
 template <class T> Vec2<T>	operator * (T a, const Vec2<T> &v);
 template <class T> Vec3<T>	operator * (T a, const Vec3<T> &v);
-
 
 //-------------------------
 // Typedefs for convenience
@@ -477,7 +443,6 @@ typedef Vec3 <int>    V3i;
 typedef Vec3 <float>  V3f;
 typedef Vec3 <double> V3d;
 
-
 //-------------------------------------------------------------------
 // Specializations for Vec2<short>, Vec2<int>, Vec3<short>, Vec3<int>
 //-------------------------------------------------------------------
@@ -491,7 +456,7 @@ template <> const Vec2<short> &
 Vec2<short>::normalize ();
 
 template <> const Vec2<short> &
-Vec2<short>::normalizeExc () throw (Iex::MathExc);
+Vec2<short>::normalizeExc ();
 
 template <> const Vec2<short> &
 Vec2<short>::normalizeNonNull ();
@@ -500,11 +465,10 @@ template <> Vec2<short>
 Vec2<short>::normalized () const;
 
 template <> Vec2<short>
-Vec2<short>::normalizedExc () const throw (Iex::MathExc);
+Vec2<short>::normalizedExc () const;
 
 template <> Vec2<short>
 Vec2<short>::normalizedNonNull () const;
-
 
 // Vec2<int>
 
@@ -515,7 +479,7 @@ template <> const Vec2<int> &
 Vec2<int>::normalize ();
 
 template <> const Vec2<int> &
-Vec2<int>::normalizeExc () throw (Iex::MathExc);
+Vec2<int>::normalizeExc ();
 
 template <> const Vec2<int> &
 Vec2<int>::normalizeNonNull ();
@@ -524,11 +488,10 @@ template <> Vec2<int>
 Vec2<int>::normalized () const;
 
 template <> Vec2<int>
-Vec2<int>::normalizedExc () const throw (Iex::MathExc);
+Vec2<int>::normalizedExc () const;
 
 template <> Vec2<int>
 Vec2<int>::normalizedNonNull () const;
-
 
 // Vec3<short>
 
@@ -539,7 +502,7 @@ template <> const Vec3<short> &
 Vec3<short>::normalize ();
 
 template <> const Vec3<short> &
-Vec3<short>::normalizeExc () throw (Iex::MathExc);
+Vec3<short>::normalizeExc ();
 
 template <> const Vec3<short> &
 Vec3<short>::normalizeNonNull ();
@@ -548,11 +511,10 @@ template <> Vec3<short>
 Vec3<short>::normalized () const;
 
 template <> Vec3<short>
-Vec3<short>::normalizedExc () const throw (Iex::MathExc);
+Vec3<short>::normalizedExc () const;
 
 template <> Vec3<short>
 Vec3<short>::normalizedNonNull () const;
-
 
 // Vec3<int>
 
@@ -563,7 +525,7 @@ template <> const Vec3<int> &
 Vec3<int>::normalize ();
 
 template <> const Vec3<int> &
-Vec3<int>::normalizeExc () throw (Iex::MathExc);
+Vec3<int>::normalizeExc ();
 
 template <> const Vec3<int> &
 Vec3<int>::normalizeNonNull ();
@@ -572,11 +534,10 @@ template <> Vec3<int>
 Vec3<int>::normalized () const;
 
 template <> Vec3<int>
-Vec3<int>::normalizedExc () const throw (Iex::MathExc);
+Vec3<int>::normalizedExc () const;
 
 template <> Vec3<int>
 Vec3<int>::normalizedNonNull () const;
-
 
 //------------------------
 // Implementation of Vec2:
@@ -904,7 +865,7 @@ Vec2<T>::normalize ()
 
 template <class T>
 const Vec2<T> &
-Vec2<T>::normalizeExc () throw (Iex::MathExc)
+Vec2<T>::normalizeExc ()
 {
     T l = length();
 
@@ -941,7 +902,7 @@ Vec2<T>::normalized () const
 
 template <class T>
 Vec2<T>
-Vec2<T>::normalizedExc () const throw (Iex::MathExc)
+Vec2<T>::normalizedExc () const
 {
     T l = length();
 
@@ -959,7 +920,6 @@ Vec2<T>::normalizedNonNull () const
     T l = length();
     return Vec2 (x / l, y / l);
 }
-
 
 //-----------------------
 // Implementation of Vec3
@@ -1150,12 +1110,7 @@ template <class T>
 inline const Vec3<T> &
 Vec3<T>::operator %= (const Vec3 &v)
 {
-    T a = y * v.z - z * v.y;
-    T b = z * v.x - x * v.z;
-    T c = x * v.y - y * v.x;
-    x = a;
-    y = b;
-    z = c;
+    *this = cross (v);
     return *this;
 }
 
@@ -1320,7 +1275,7 @@ Vec3<T>::normalize ()
 
 template <class T>
 const Vec3<T> &
-Vec3<T>::normalizeExc () throw (Iex::MathExc)
+Vec3<T>::normalizeExc ()
 {
     T l = length();
 
@@ -1359,7 +1314,7 @@ Vec3<T>::normalized () const
 
 template <class T>
 Vec3<T>
-Vec3<T>::normalizedExc () const throw (Iex::MathExc)
+Vec3<T>::normalizedExc () const
 {
     T l = length();
 
