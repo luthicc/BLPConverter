@@ -247,17 +247,14 @@ template <class T> class Matrix33
     // 
     //------------------------------------------------------------
 
-    const Matrix33 &	invert (bool singExc = false)
-			throw (Iex::MathExc);
+    const Matrix33 &	invert (bool singExc = false);
 
-    Matrix33<T>		inverse (bool singExc = false) const
-			throw (Iex::MathExc);
+    Matrix33<T>		inverse (bool singExc = false) const;
 
-    const Matrix33 &	gjInvert (bool singExc = false)
-			throw (Iex::MathExc);
-
-    Matrix33<T>		gjInverse (bool singExc = false) const
-			throw (Iex::MathExc);
+    const Matrix33 &	gjInvert (bool singExc = false);
+	
+    Matrix33<T>		gjInverse (bool singExc = false) const;
+			
 
 
     //-----------------------------------------
@@ -567,17 +564,14 @@ template <class T> class Matrix44
     // 
     //------------------------------------------------------------
 
-    const Matrix44 &	invert (bool singExc = false)
-			throw (Iex::MathExc);
+    const Matrix44 &	invert (bool singExc = false); 
 
-    Matrix44<T>		inverse (bool singExc = false) const
-			throw (Iex::MathExc);
+    Matrix44<T>		inverse (bool singExc = false) const; 
 
-    const Matrix44 &	gjInvert (bool singExc = false)
-			throw (Iex::MathExc);
-
-    Matrix44<T>		gjInverse (bool singExc = false) const
-			throw (Iex::MathExc);
+    const Matrix44 &	gjInvert (bool singExc = false); 
+			
+    Matrix44<T>		gjInverse (bool singExc = false) const;
+		
 
 
     //--------------------------------------------------------
@@ -1308,7 +1302,7 @@ Matrix33<T>::transposed () const
 
 template <class T>
 const Matrix33<T> &
-Matrix33<T>::gjInvert (bool singExc) throw (Iex::MathExc)
+Matrix33<T>::gjInvert (bool singExc)
 {
     *this = gjInverse (singExc);
     return *this;
@@ -1316,7 +1310,7 @@ Matrix33<T>::gjInvert (bool singExc) throw (Iex::MathExc)
 
 template <class T>
 Matrix33<T>
-Matrix33<T>::gjInverse (bool singExc) const throw (Iex::MathExc)
+Matrix33<T>::gjInverse (bool singExc) const
 {
     int i, j, k;
     Matrix33 s;
@@ -1420,7 +1414,7 @@ Matrix33<T>::gjInverse (bool singExc) const throw (Iex::MathExc)
 
 template <class T>
 const Matrix33<T> &
-Matrix33<T>::invert (bool singExc) throw (Iex::MathExc)
+Matrix33<T>::invert (bool singExc)
 {
     *this = inverse (singExc);
     return *this;
@@ -1428,7 +1422,7 @@ Matrix33<T>::invert (bool singExc) throw (Iex::MathExc)
 
 template <class T>
 Matrix33<T>
-Matrix33<T>::inverse (bool singExc) const throw (Iex::MathExc)
+Matrix33<T>::inverse (bool singExc) const
 {
     if (x[0][2] != 0 || x[1][2] != 0 || x[2][2] != 1)
     {
@@ -2553,7 +2547,7 @@ Matrix44<T>::transposed () const
 
 template <class T>
 const Matrix44<T> &
-Matrix44<T>::gjInvert (bool singExc) throw (Iex::MathExc)
+Matrix44<T>::gjInvert (bool singExc)
 {
     *this = gjInverse (singExc);
     return *this;
@@ -2561,7 +2555,7 @@ Matrix44<T>::gjInvert (bool singExc) throw (Iex::MathExc)
 
 template <class T>
 Matrix44<T>
-Matrix44<T>::gjInverse (bool singExc) const throw (Iex::MathExc)
+Matrix44<T>::gjInverse (bool singExc) const
 {
     int i, j, k;
     Matrix44 s;
@@ -2665,7 +2659,7 @@ Matrix44<T>::gjInverse (bool singExc) const throw (Iex::MathExc)
 
 template <class T>
 const Matrix44<T> &
-Matrix44<T>::invert (bool singExc) throw (Iex::MathExc)
+Matrix44<T>::invert (bool singExc)
 {
     *this = inverse (singExc);
     return *this;
@@ -2673,7 +2667,7 @@ Matrix44<T>::invert (bool singExc) throw (Iex::MathExc)
 
 template <class T>
 Matrix44<T>
-Matrix44<T>::inverse (bool singExc) const throw (Iex::MathExc)
+Matrix44<T>::inverse (bool singExc) const
 {
     if (x[0][3] != 0 || x[1][3] != 0 || x[2][3] != 0 || x[3][3] != 1)
 	return gjInverse(singExc);
